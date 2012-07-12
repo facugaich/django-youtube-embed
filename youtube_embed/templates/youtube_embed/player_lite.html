@@ -1,0 +1,11 @@
+<div id="youtube_embed_player_{{ video_id }}"></div>
+<script>
+$(document).on('apiload.YoutubeEmbed', function() {
+        var player = new YT.Player('youtube_embed_player_{{ video_id }}', {
+            height: '{{ height }}',
+            width: '{{ width }}',
+            videoId: '{{ video_id }}',
+        });
+    }
+);
+</script>

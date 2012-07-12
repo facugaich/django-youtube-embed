@@ -15,7 +15,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^field$', 'demo.views.field')
+    url(r'^field$', 'demo.base.views.field'),
+    url(r'^model$', 'demo.base.views.model'),
+    url(r'^videos$', 'demo.base.views.videos'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

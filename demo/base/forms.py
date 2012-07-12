@@ -8,6 +8,6 @@ class WidgetTest(forms.Form):
     youtube_id = YoutubeVideoField()
 
 class ModelTestForm(forms.ModelForm):
-    video_id = YoutubeVideoField()
+    youtube_id = YoutubeVideoField()
     class Meta:
         model = ModelTest

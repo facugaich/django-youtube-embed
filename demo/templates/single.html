@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load youtube_embed_tags %}
+
+{% block container %}
+    {% full_player_for video.youtube_id width=1024 height=720 %}
+{% endblock container %}
