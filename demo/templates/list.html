@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load youtube_embed_tags %}
+
+{% block extra_head %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+{{ form.media }}
+{% endblock extra_head %}
+
+{% block container %}
+    {% for video in videos %}
+        {% render_thumbnail_for video.video_id %}
+        {% render_video_widget_for video.video_id %}
+    {% endfor %}
+{% endblock container %}
