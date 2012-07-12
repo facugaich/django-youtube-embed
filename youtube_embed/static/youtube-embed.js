@@ -35,16 +35,28 @@ function parseURLOnKeyUpChange() {
 }
 
 function retrieveVideoOnChange() {
-    var api_pre, api_suf;
+    var api_pre, api_suf, id;
+    id = $(this).val();
     api_pre = 'https://gdata.youtube.com/feeds/api/videos/';
     api_suf = '?v=2&alt=jsonc&callback=showVideoInfoOnRetrieve';
-    $.getScript(api_pre + encodeURIComponent($(this).val()) + api_suf);
+
+    // HACK: Since the callback function doesn't have an extra state
+    // we "tag" the elements that must receive the video data with a class
+    $('#youtube-embed-title').addClass('title' + id);
+    $('#youtube-embed-img').addClass('img' + id);
+    $('#youtube-embed-desc').addClass('desc' + id);
+
+    $.getScript(api_pre + encodeURIComponent(id) + api_suf);
 }
 
 function showVideoInfoOnRetrieve(response) {
-    $('#youtube-embed-title').text(response.data.title);
-    $('#youtube-embed-img').attr('src', response.data.thumbnail.sqDefault);
-    $('#youtube-embed-desc').text(response.data.description);
+    id = response.data.id;
+    $('.title' + id).text(response.data.title)
+                    .removeClass('title' + id);
+    $('.img' + id).attr('src', response.data.thumbnail.sqDefault)
+                  .removeClass('img' + id);
+    $('.desc' + id).text(response.data.description)
+                   .removeClass('title' + id);
 }
 
 $(document).ready(function() {
