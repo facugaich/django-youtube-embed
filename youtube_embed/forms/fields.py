@@ -18,4 +18,4 @@ class YoutubeVideoField(forms.CharField):
                                                 *args, **kwargs)
 
     def to_python(self, value):
-        return super(YoutubeVideoField, self).to_python(value[1])
+        return super(YoutubeVideoField, self).to_python(value[0])

@@ -7,12 +7,12 @@ class YoutubeVideoWidget(MultiWidget):
     canonic_url = 'http://www.youtube.com/watch?v={0}'
 
     def __init__(self, attrs=None):
-        widgets = (TextInput, HiddenInput)
+        widgets = (HiddenInput, TextInput)
         super(YoutubeVideoWidget, self).__init__(widgets, attrs)
 
     def decompress(self, value):
         if value:
-            return [self.canonic_url.format(value), value]
+            return [value, self.canonic_url.format(value)]
         return [None, None]
 
     def format_output(self, rendered_widgets):

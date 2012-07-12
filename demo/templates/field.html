@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load url from future %}
-
+{% load youtube_embed_tags %}
 
 {% block extra_head %}
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -15,8 +15,8 @@
     <input type="submit" value="Send" />
 </form>
 <div>
-    <span id="youtube-embed-title"></span><br />
-    <img id="youtube-embed-img" src="" /><br />
-    <span id="youtube-embed-desc"></span><br />
+    {% render_title_span_for form.youtube_id %}<br />
+    {% render_img_for form.youtube_id %}<br />
+    {% render_desc_span_for form.youtube_id %}<br />
 </div>
 {% endblock container %}

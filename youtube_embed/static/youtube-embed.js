@@ -35,16 +35,17 @@ function parseURLOnKeyUpChange() {
 }
 
 function retrieveVideoOnChange() {
-    var api_pre, api_suf, id;
-    id = $(this).val();
+    var api_pre, api_suf, id, $this;
+    $this = $(this);
+    id = $this.val();
     api_pre = 'https://gdata.youtube.com/feeds/api/videos/';
     api_suf = '?v=2&alt=jsonc&callback=showVideoInfoOnRetrieve';
 
     // HACK: Since the callback function doesn't have an extra state
     // we "tag" the elements that must receive the video data with a class
-    $('#youtube-embed-title').addClass('title' + id);
-    $('#youtube-embed-img').addClass('img' + id);
-    $('#youtube-embed-desc').addClass('desc' + id);
+    $('#title_' + $this.attr('id')).addClass('title' + id);
+    $('#img_' + $this.attr('id')).addClass('img' + id);
+    $('#desc_' + $this.attr('id')).addClass('desc' + id);
 
     $.getScript(api_pre + encodeURIComponent(id) + api_suf);
 }
