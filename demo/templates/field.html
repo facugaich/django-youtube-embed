@@ -4,14 +4,6 @@
 
 {% block extra_head %}
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#youtube-form').submit(function() {
-        url = $('.youtube-embed-container').find('input[type="text"]').val();
-        $('.youtube-embed-container').find('input[type="hidden"]').val(url);
-    });
-});
-</script>
 {{ form.media }}
 {% endblock extra_head %}
 
@@ -22,4 +14,9 @@ $(document).ready(function() {
     {{ form.as_p }}
     <input type="submit" value="Send" />
 </form>
+<div>
+    <span id="youtube-embed-title"></span><br />
+    <img id="youtube-embed-img" src="" /><br />
+    <span id="youtube-embed-desc"></span><br />
+</div>
 {% endblock container %}
