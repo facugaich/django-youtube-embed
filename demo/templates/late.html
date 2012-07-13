@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load youtube_embed_tags %}
+
+{% block extra_head %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+{% include 'youtube_embed/player_api.html' %}
+<script>
+    $(document).ready(function() {
+        $('#loadmore').click(function (e) {
+            $('#morevideos').load($(this).attr('href'));
+            e.preventDefault();
+        });
+        $('#triggerevent').click(function (e) {
+            $(document).trigger('apiload.YoutubeEmbed');
+            e.preventDefault();
+        });
+    });
+</script>
+{% endblock extra_head %}
+
+{% block container %}
+    <a id="loadmore" href="{% url 'demo.base.views.more' %}">Load videos</a>
+    <a id="triggerevent" href="#">Trigger Event</a>
+    <div id="morevideos"></div>
+{% endblock container %}

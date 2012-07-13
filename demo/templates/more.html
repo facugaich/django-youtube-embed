@@ -1,0 +1,4 @@
+{% load youtube_embed_tags %}
+{% for video in videos %}
+    {% lite_player_for video.youtube_id width=220 height=220 %}
+{% endfor %}

@@ -37,3 +37,9 @@ def model(request):
 
 def videos(request):
     return render_to_response('list.html', {'videos': ModelTest.objects.all()})
+
+def late(request):
+    return render_to_response('late.html')
+
+def more(request):
+    return render_to_response('more.html', {'videos': ModelTest.objects.all()})

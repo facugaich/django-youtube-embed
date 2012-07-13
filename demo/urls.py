@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^field$', 'demo.base.views.field'),
     url(r'^model$', 'demo.base.views.model'),
     url(r'^videos$', 'demo.base.views.videos'),
+    url(r'^late$', 'demo.base.views.late'),
+    url(r'^more$', 'demo.base.views.more'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
